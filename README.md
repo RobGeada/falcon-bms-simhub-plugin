@@ -74,3 +74,6 @@ return $prop("FalconBMS.ownship.nozzlePos") * 80 + 100 // adjust effect pitch ac
 ```
 
 This is just a few of the effects I've set up for my rig, I've got others for things like missile release, airbrake turbulence, and landing gear raising/lowering, and I'll be trying to figure out how to add touchdown, crash, eject, and damage effects in the near future. Feel free to open an issue here, or message me the [Falcon Lounge](https://www.falcon-lounge.com/) or [SimHub](https://discord.gg/nBBMuX7) discords (I'm @robgeada) to talk more about the plugin or custom SimHub effects!
+
+# Disclaimers
+I've tested this with BMS 4.37.4 and (licensed) SimHub 9.4.9. While I'll do my best to maintain this in the future, there is no guarantee that it will continue to work with future BMS/SimHub updates. 
