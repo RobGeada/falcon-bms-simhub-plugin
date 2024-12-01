@@ -12,8 +12,12 @@ This project relies on lightingtools' [F4SharedMem tool](https://github.com/ligh
 # Some sample bass shaker configs:
 SimHub's built-in bass shaker effects are pretty car-focused, so we'll have to write our own custom effects. Here are a few custom effects that I use as examples:
 
+To set up a custom bass shaker effect in SimHub, go to `ShakeIt Bass Shakers`, select `Add Effect`, then scroll to the bottom to find `Custom Effect`.
+
 ### G-Force Rumbling
-'''javascript
+In the effect settings, hit edit, then toggle `Use Javascript`, then paste the following into the `Javascript` field:
+
+```javascript
 if ($prop("FalconBMS.Utility.stopEffects")){
 	return 0
 }
@@ -25,4 +29,4 @@ gsFromOne = Math.abs(gs - 1)
 bump = Math.random() > .5 
 
 return bump * (gsFromOne * 100/8)
-'''
+```
