@@ -216,7 +216,8 @@ namespace RGeada.FalconBMS
                     this.SetProp("IntelliVibe.damageforce", flightData.IntellivibeData.damageforce);
                     this.SetProp("IntelliVibe.whendamage", flightData.IntellivibeData.whendamage);
 
-                    this.AddProp("Utility.stopEffects", flightData.IntellivibeData.IsPaused || flightData.IntellivibeData.IsFrozen || flightData.IntellivibeData.IsExitGame || flightData.IntellivibeData.IsEndFlight || !flightData.IntellivibeData.In3D);
+                    bool notInPlane = flightData.IntellivibeData.IsPaused || flightData.IntellivibeData.IsFrozen || flightData.IntellivibeData.IsExitGame || flightData.IntellivibeData.IsEndFlight || !flightData.IntellivibeData.In3D;
+                    this.AddProp("Utility.stopEffects", notInPlane && !bmsReader.IsFalconRunning);
                 }
                 oldFlightData = flightData;
             }
