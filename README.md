@@ -5,9 +5,11 @@ This plugin connects [Falcon 4 BMS](https://www.falcon-bms.com/)'s telemetry out
 This project relies on lightingtools' [F4SharedMem tool](https://github.com/lightningviper/lightningstools/tree/master/src/F4SharedMem) to read the telemetry out of the BMS shared memory.
 
 # Installation
-1) Download the FalconBMS plugin [.dll file](https://github.com/RobGeada/falcon-bms-simhub-plugin/raw/refs/heads/main/builds/RGeada.FalconBMS.dll)
+1) Download the prebuilt FalconBMS plugin: [RGeada.FalconBMS.dll](https://github.com/RobGeada/falcon-bms-simhub-plugin/raw/refs/heads/main/builds/RGeada.FalconBMS.dll)
 2) Move the downloaded `RGeada.FalconBMS.dll` to your SimHub folder in `$DRIVE:\\Program Files (x86)\SimHub`
 
+# Build From Source
+Alternatively, I've included the source code for the plugin, so if you're familiar with the SimHub plugin SDK, you can build and modify the plugin yourself!
 
 # Some sample bass shaker configs:
 SimHub's built-in bass shaker effects are pretty car-focused, so we'll have to write our own custom effects. Here are a few custom effects that I use as examples:
@@ -71,6 +73,4 @@ For this effect, I also modulate the frequency, by selecting `Forced Frequencies
 return $prop("FalconBMS.ownship.nozzlePos") * 80 + 100 // adjust effect pitch according to nozzle opening
 ```
 
-This is just a few of the effects I've set up for my rig, I've got others for things like missile release, airbrake turbulence, and landing gear raising/lowering. With a little creativity, a lot of cool stuff can be set up; the sky's the limit!
-
-
+This is just a few of the effects I've set up for my rig, I've got others for things like missile release, airbrake turbulence, and landing gear raising/lowering, and I'll be trying to figure out how to add touchdown, crash, eject, and damage effects in the near future. Feel free to open an issue here, or message me the [Falcon Lounge](https://www.falcon-lounge.com/) or [SimHub](https://discord.gg/nBBMuX7) discords (I'm @robgeada) to talk more about the plugin or custom SimHub effects!
