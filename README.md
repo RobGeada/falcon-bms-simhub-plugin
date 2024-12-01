@@ -7,9 +7,15 @@ This project relies on lightingtools' [F4SharedMem tool](https://github.com/ligh
 # Installation
 1) Download the prebuilt FalconBMS plugin: [RGeada.FalconBMS.dll](https://github.com/RobGeada/falcon-bms-simhub-plugin/raw/refs/heads/main/builds/RGeada.FalconBMS.dll)
 2) Move the downloaded `RGeada.FalconBMS.dll` to your SimHub folder in `$DRIVE:\\Program Files (x86)\SimHub`
+3) Restart SimHub
+
+You can check that the plugin has installed succesfully by looking in the "Available Properties" tab of SimHub and searching for `FalconBMS`: you should see a bunch of available properties.
 
 # Build From Source
 Alternatively, I've included the source code for the plugin, so if you're familiar with the SimHub plugin SDK, you can build and modify the plugin yourself!
+
+# Provided Properties
+You can see the telemetry fields that the plugin exposes in the main [FalconBMS.cs file](https://github.com/RobGeada/falcon-bms-simhub-plugin/blob/68ecbddbb9fcb147693aed62593b85c1f4495f5c/FalconBMS.cs#L51). These are (roughly) the properties in the original [F4SharedMemory FlightData class](https://github.com/lightningviper/lightningstools/blob/9bc1be08717982922fbb0705f500d93a2b36da0d/src/F4SharedMem/FlightData.cs#L230). 
 
 # Some sample bass shaker configs:
 SimHub's built-in bass shaker effects are pretty car-focused, so we'll have to write our own custom effects. Here are a few custom effects that I use as examples:
