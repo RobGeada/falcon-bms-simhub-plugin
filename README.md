@@ -18,15 +18,59 @@ To set up a custom bass shaker effect in SimHub, go to `ShakeIt Bass Shakers`, s
 In the effect settings, hit edit, then toggle `Use Javascript`, then paste the following into the `Javascript` field:
 
 ```javascript
-if ($prop("FalconBMS.Utility.stopEffects")){
+//turn off effects if not in plane
+if ($prop("FalconBMS.Utility.stopEffects")){ 
 	return 0
 }
 
 
-gs = $prop("FalconBMS.ownship.gs")
-gsFromOne = Math.abs(gs - 1)
+gs = $prop("FalconBMS.ownship.gs") // get current g-forces
+gsFromOne = Math.abs(gs - 1) // how far from 1G are we?
+bump = Math.random() > .5 // waver the output volume randomly between 0 and 100, to add sensation of bumps
 
-bump = Math.random() > .5 
-
-return bump * (gsFromOne * 100/8)
+return bump * (gsFromOne * 100/8) // scale effect by gs, maximum intensity at 8g
 ```
+I run this effect at 44hz.
+
+### Cannon Fire
+```javascript
+//turn off effects if not in plane
+if ($prop("FalconBMS.Utility.stopEffects")){
+	return 0
+}
+
+gun = $prop("FalconBMS.IntelliVibe.IsFiringGun")
+bump = (Math.random()<.9) * .2 + .8 // waver the output volume between 80% and 100%, to add organic fluctions to sound
+
+return gun * bump * 100
+```
+The F16 cannon fires at 6,000 rpm, so run this effect at 100hz to exactly match the firing frequency. For added oomph, add a duplicate of this effect at 50hz.
+
+### Afterburner
+I run this effect in stereo, with two copies the function below in the left and right channels. This adds some extra spatial noise to sensation, giving more of a 3D feel.
+
+```javascript
+// turn off effects if not in plane
+if ($prop("FalconBMS.Utility.stopEffects")){
+	return 0
+}
+
+// turn off effects if the engine is off
+if ($prop("FalconBMS.ownship.fuelFlow")<1){
+	return 0;
+}
+
+
+nozzle = Math.max(0, $prop("FalconBMS.ownship.nozzlePos") * 100 - 30) // how open is the engine nozzle aperture? 
+rpm = $prop("FalconBMS.ownship.rpm")/100 // scale effect by engine rpm
+bump = Math.random() < .8  // add random bumping 
+return bump * nozzle * rpm
+```
+For this effect, I also modulate the frequency, by selecting `Forced Frequencies` in the effect settings. My frequency computation is:
+```javascript
+return $prop("FalconBMS.ownship.nozzlePos") * 80 + 100 // adjust effect pitch according to nozzle opening
+```
+
+This is just a few of the effects I've set up for my rig, I've got others for things like missile release, airbrake turbulence, and landing gear raising/lowering. With a little creativity, a lot of cool stuff can be set up; the sky's the limit!
+
+
