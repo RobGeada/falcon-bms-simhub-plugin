@@ -149,8 +149,8 @@ namespace RGeada.FalconBMS
                     this.SetProp("fuel.fwd", flightData.fwd);
                     this.SetProp("fuel.aft", flightData.aft);
                     this.SetProp("fuel.total", flightData.total);
-                    this.SetProp("fuel.VersionNum", flightData.VersionNum);
-                    this.SetProp("fuel.VersionNum2", flightData.VersionNum2);
+                    this.SetProp("memory.VersionNum", flightData.VersionNum);
+                    this.SetProp("memory.VersionNum2", flightData.VersionNum2);
                     this.SetProp("headPosition.headX", flightData.headX);
                     this.SetProp("headPosition.headY", flightData.headY);
                     this.SetProp("headPosition.headZ", flightData.headZ);
@@ -165,27 +165,27 @@ namespace RGeada.FalconBMS
                     this.SetProp("pilotInfo.pilotsOnline", flightData.pilotsOnline);
                     this.SetProp("pilotInfo.pilotsCallsign", flightData.pilotsCallsign);
                     this.SetProp("pilotInfo.pilotsStatus", flightData.pilotsStatus);
-                    this.SetProp("VERSION_12.RTT_size", flightData.RTT_size);
-                    this.SetProp("VERSION_12.RTT_area", flightData.RTT_area);
-                    this.SetProp("VERSION_13.iffBackupMode1Digit1", flightData.iffBackupMode1Digit1);
-                    this.SetProp("VERSION_13.iffBackupMode1Digit2", flightData.iffBackupMode1Digit2);
-                    this.SetProp("VERSION_13.iffBackupMode3ADigit1", flightData.iffBackupMode3ADigit1);
-                    this.SetProp("VERSION_13.iffBackupMode3ADigit2", flightData.iffBackupMode3ADigit2);
-                    this.SetProp("VERSION_14.instrLight", flightData.instrLight);
-                    this.SetProp("VERSION_15.bettyBits", flightData.bettyBits);
-                    this.SetProp("VERSION_15.miscBits", flightData.miscBits);
-                    this.SetProp("VERSION_15.RALT", flightData.RALT);
-                    this.SetProp("VERSION_15.bingoFuel", flightData.bingoFuel);
-                    this.SetProp("VERSION_15.caraAlow", flightData.caraAlow);
-                    this.SetProp("VERSION_15.bullseyeX", flightData.bullseyeX);
-                    this.SetProp("VERSION_15.bullseyeY", flightData.bullseyeY);
-                    this.SetProp("VERSION_15.BMSVersionMajor", flightData.BMSVersionMajor);
-                    this.SetProp("VERSION_15.BMSVersionMinor", flightData.BMSVersionMinor);
-                    this.SetProp("VERSION_15.BMSVersionMicro", flightData.BMSVersionMicro);
-                    this.SetProp("VERSION_15.BMSBuildNumber", flightData.BMSBuildNumber);
+                    this.SetProp("RTT.RTT_size", flightData.RTT_size);
+                    this.SetProp("RTT.RTT_area", flightData.RTT_area);
+                    this.SetProp("IFF.iffBackupMode1Digit1", flightData.iffBackupMode1Digit1);
+                    this.SetProp("IFF.iffBackupMode1Digit2", flightData.iffBackupMode1Digit2);
+                    this.SetProp("IFF.iffBackupMode3ADigit1", flightData.iffBackupMode3ADigit1);
+                    this.SetProp("IFF.iffBackupMode3ADigit2", flightData.iffBackupMode3ADigit2);
+                    this.SetProp("lights.instrLight", flightData.instrLight);
+                    this.SetProp("betty.bettyBits", flightData.bettyBits);
+                    this.SetProp("misc.miscBits", flightData.miscBits);
+                    this.SetProp("ralt.RALT", flightData.RALT);
+                    this.SetProp("bingo.bingoFuel", flightData.bingoFuel);
+                    this.SetProp("cara.caraAlow", flightData.caraAlow);
+                    this.SetProp("bullseye.bullseyeX", flightData.bullseyeX);
+                    this.SetProp("bullseye.bullseyeY", flightData.bullseyeY);
+                    this.SetProp("bmsBuildInfo.BMSVersionMajor", flightData.BMSVersionMajor);
+                    this.SetProp("bmsBuildInfo.BMSVersionMinor", flightData.BMSVersionMinor);
+                    this.SetProp("bmsBuildInfo.BMSVersionMicro", flightData.BMSVersionMicro);
+                    this.SetProp("bmsBuildInfo.BMSBuildNumber", flightData.BMSBuildNumber);
                     this.SetProp("SharedMemoryInfo.StringAreaSize", flightData.StringAreaSize);
                     this.SetProp("SharedMemoryInfo.StringAreaTime", flightData.StringAreaTime);
-                    this.SetProp("SharedMemoryInfo.DrawingAreaSize//", flightData.DrawingAreaSize);
+                    this.SetProp("SharedMemoryInfo.DrawingAreaSize", flightData.DrawingAreaSize);
 
                     this.SetProp("magneticDeviation.magDeviationSystem", flightData.magDeviationSystem);
                     this.SetProp("magneticDeviation.magDeviationReal", flightData.magDeviationReal);
@@ -216,8 +216,10 @@ namespace RGeada.FalconBMS
                     this.SetProp("IntelliVibe.damageforce", flightData.IntellivibeData.damageforce);
                     this.SetProp("IntelliVibe.whendamage", flightData.IntellivibeData.whendamage);
 
+
                     bool notInPlane = flightData.IntellivibeData.IsPaused || flightData.IntellivibeData.IsFrozen || flightData.IntellivibeData.IsExitGame || flightData.IntellivibeData.IsEndFlight || !flightData.IntellivibeData.In3D;
-                    this.AddProp("Utility.stopEffects", notInPlane && !bmsReader.IsFalconRunning);
+                    bool noData = flightData.latitude == 0 && flightData.longitude == 0 && flightData.currentTime == 0 && flightData.vehicleACD == 0;
+                    this.AddProp("Utility.stopEffects", notInPlane || !bmsReader.IsFalconRunning || noData);
                 }
                 oldFlightData = flightData;
             }
@@ -358,8 +360,8 @@ namespace RGeada.FalconBMS
             this.AddProp("fuel.fwd", 0.0);
             this.AddProp("fuel.aft", 0.0);
             this.AddProp("fuel.total", 0.0);
-            this.AddProp("fuel.VersionNum", 0);
-            this.AddProp("fuel.VersionNum2", 0);
+            this.AddProp("memory.VersionNum", 0);
+            this.AddProp("memory.VersionNum2", 0);
             this.AddProp("headPosition.headX", 0.0);
             this.AddProp("headPosition.headY", 0.0);
             this.AddProp("headPosition.headZ", 0.0);
@@ -374,27 +376,27 @@ namespace RGeada.FalconBMS
             this.AddProp("pilotInfo.pilotsOnline", 0);
             this.AddProp("pilotInfo.pilotsCallsign", new string[0]);
             this.AddProp("pilotInfo.pilotsStatus", new byte[0]);
-            this.AddProp("VERSION_12.RTT_size", new ushort[0]);
-            this.AddProp("VERSION_12.RTT_area", new ushort[0]);
-            this.AddProp("VERSION_13.iffBackupMode1Digit1", 0);
-            this.AddProp("VERSION_13.iffBackupMode1Digit2", 0);
-            this.AddProp("VERSION_13.iffBackupMode3ADigit1", 0);
-            this.AddProp("VERSION_13.iffBackupMode3ADigit2", 0);
-            this.AddProp("VERSION_14.instrLight", 0);
-            this.AddProp("VERSION_15.bettyBits", 0);
-            this.AddProp("VERSION_15.miscBits", 0);
-            this.AddProp("VERSION_15.RALT", 0.0);
-            this.AddProp("VERSION_15.bingoFuel", 0.0);
-            this.AddProp("VERSION_15.caraAlow", 0.0);
-            this.AddProp("VERSION_15.bullseyeX", 0.0);
-            this.AddProp("VERSION_15.bullseyeY", 0.0);
-            this.AddProp("VERSION_15.BMSVersionMajor", 0);
-            this.AddProp("VERSION_15.BMSVersionMinor", 0);
-            this.AddProp("VERSION_15.BMSVersionMicro", 0);
-            this.AddProp("VERSION_15.BMSBuildNumber", 0);
+            this.AddProp("RTT.RTT_size", new ushort[0]);
+            this.AddProp("RTT.RTT_area", new ushort[0]);
+            this.AddProp("IFF.iffBackupMode1Digit2", 0);
+            this.AddProp("IFF.iffBackupMode3ADigit1", 0);
+            this.AddProp("IFF.iffBackupMode3ADigit2", 0);
+            this.AddProp("IFF.iffBackupMode1Digit1", 0);
+            this.AddProp("lights.instrLight", 0);
+            this.AddProp("betty.bettyBits", 0);
+            this.AddProp("misc.miscBits", 0);
+            this.AddProp("ralt.RALT", 0.0);
+            this.AddProp("bingo.bingoFuel", 0.0);
+            this.AddProp("cara.caraAlow", 0.0);
+            this.AddProp("bullseye.bullseyeX", 0.0);
+            this.AddProp("bullseye.bullseyeY", 0.0);
+            this.AddProp("bmsBuildInfo.BMSVersionMajor", 0);
+            this.AddProp("bmsBuildInfo.BMSVersionMinor", 0);
+            this.AddProp("bmsBuildInfo.BMSVersionMicro", 0);
+            this.AddProp("bmsBuildInfo.BMSBuildNumber", 0);
             this.AddProp("SharedMemoryInfo.StringAreaSize", 0);
             this.AddProp("SharedMemoryInfo.StringAreaTime", 0);
-            this.AddProp("SharedMemoryInfo.DrawingAreaSize//", 0);
+            this.AddProp("SharedMemoryInfo.DrawingAreaSize", 0);
             this.AddProp("magneticDeviation.magDeviationSystem", 0.0);
             this.AddProp("magneticDeviation.magDeviationReal", 0.0);
             this.AddProp("magneticDeviation.ecmBits", new uint[0]);
@@ -404,8 +406,8 @@ namespace RGeada.FalconBMS
             this.AddProp("IFF_Transponder.iffTransponderActiveCode3A", 0);
             this.AddProp("IFF_Transponder.iffTransponderActiveCodeC", 0);
             this.AddProp("IFF_Transponder.iffTransponderActiveCode4", 0);
-            this.AddProp("VERSION_18.EWMULines", new string[0]);
-            this.AddProp("VERSION_18.EWPILines", new string[0]);
+            this.AddProp("EW.EWMULines", new string[0]);
+            this.AddProp("EW.EWPILines", new string[0]);
 
             this.AddProp("IntelliVibe.AAMissileFired", 0);
             this.AddProp("IntelliVibe.AGMissileFired", 0);
@@ -415,14 +417,14 @@ namespace RGeada.FalconBMS
             this.AddProp("IntelliVibe.BulletsFired", 0);
             this.AddProp("IntelliVibe.CollisionCounter", 0);
             this.AddProp("IntelliVibe.IsFiringGun", false);
-            this.AddProp("IntelliVibe.IsEndFlight", false);
+            this.AddProp("IntelliVibe.IsEndFlight", true);
             this.AddProp("IntelliVibe.IsEjecting", false);
             this.AddProp("IntelliVibe.In3D", false);
             this.AddProp("IntelliVibe.IsPaused", false);
             this.AddProp("IntelliVibe.IsFrozen", false);
             this.AddProp("IntelliVibe.IsOverG", false);
             this.AddProp("IntelliVibe.IsOnGround", false);
-            this.AddProp("IntelliVibe.IsExitGame", false);
+            this.AddProp("IntelliVibe.IsExitGame", true);
             this.AddProp("IntelliVibe.Gforce", 0.0);
             this.AddProp("IntelliVibe.eyex", 0.0);
             this.AddProp("IntelliVibe.eyey", 0.0);
@@ -431,7 +433,8 @@ namespace RGeada.FalconBMS
             this.AddProp("IntelliVibe.damageforce", 0.0);
             this.AddProp("IntelliVibe.whendamage", 0);
 
-            this.AddProp("Utility.inGame", false);
+            this.AddProp("FlyState.flystate", 0x0);
+            this.AddProp("Utility.stopEffects", true);
 
         }
 
