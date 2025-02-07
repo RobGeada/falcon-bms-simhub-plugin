@@ -6,8 +6,9 @@ This project relies on lightingtools' [F4SharedMem tool](https://github.com/ligh
 
 # Installation
 1) Download the prebuilt FalconBMS plugin: [RGeada.FalconBMS.dll](https://github.com/RobGeada/falcon-bms-simhub-plugin/raw/refs/heads/main/builds/RGeada.FalconBMS.dll)
-2) Move the downloaded `RGeada.FalconBMS.dll` to your SimHub folder in `$DRIVE:\\Program Files (x86)\SimHub`
-3) Restart SimHub
+2) Download the F4SharedMem.dll: [F4SharedMem.dll](https://github.com/RobGeada/falcon-bms-simhub-plugin/blob/main/F4SharedMem.dll)
+3) Move both downloaded `dll`s to your SimHub folder in `$DRIVE:\\Program Files (x86)\SimHub`
+4) Restart SimHub
 
 You can check that the plugin has installed succesfully by looking in the "Available Properties" tab of SimHub and searching for `FalconBMS`: you should see a bunch of available properties.
 
