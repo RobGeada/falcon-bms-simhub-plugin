@@ -1,0 +1,1004 @@
+{
+  "CarChoices": [],
+  "IncludeOutputSettingsInProfile": false,
+  "UnmuteEffectsAfterSimhubRestart": true,
+  "EffectsContainers": [
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 0.19999999999999968,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\nif ($prop(\"FalconBMS.ownship.fuelFlow\")<1){\r\n\treturn 0;\r\n}\r\nrpm = $prop(\"FalconBMS.ownship.rpm\")\r\nbump = Math.random() < .8\r\n\r\nreturn rpm * bump"
+      },
+      "FrontRightFormula": {
+        "Expression": ""
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": true,
+      "FrontLeftFrequencyFormula": {
+        "Expression": "[FalconBMS.ownship.rpm]*1.2"
+      },
+      "FrontRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "ae1e20a4-6c9d-48c1-8dae-99c9d493625f",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "RPM Engine Rumble",
+      "AggregationMode": "Mono",
+      "Gain": 11.777777777777715,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 60,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 3,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    },
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 1.0,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\ngs = $prop(\"FalconBMS.ownship.gs\")\r\ngsFromOne = Math.abs(gs - 1)\r\n\r\nbump = Math.random() > .5 \r\n\r\nreturn bump * (gsFromOne * 100/8)"
+      },
+      "FrontRightFormula": {
+        "Expression": ""
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": false,
+      "FrontLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "FrontRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "42759df8-f8ba-4363-9f50-93cf973ff02b",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "Gs",
+      "AggregationMode": "Mono",
+      "Gain": 90.0,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 44,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 10,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    },
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 1.0,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\nif ($prop(\"FalconBMS.ownship.fuelFlow\")<1){\r\n\treturn 0;\r\n}\r\n\r\nif ($prop(\"FalconBMS.ownship.fuelFlow\")<10000){\r\n\treturn 0;\r\n}\r\n\r\n\r\n\r\nnozzle = Math.max(0, $prop(\"FalconBMS.ownship.nozzlePos\") * 100 - 30)\r\nrpm = $prop(\"FalconBMS.ownship.rpm\")/100\r\nbump = Math.random() < .8 \r\n\r\nreturn bump * nozzle * rpm"
+      },
+      "FrontRightFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\nif ($prop(\"FalconBMS.ownship.fuelFlow\")<1){\r\n\treturn 0;\r\n}\r\n\r\nif ($prop(\"FalconBMS.ownship.fuelFlow\")<10000){\r\n\treturn 0;\r\n}\r\n\r\nnozzle = Math.max(0, $prop(\"FalconBMS.ownship.nozzlePos\") * 100 - 30)\r\nrpm = $prop(\"FalconBMS.ownship.rpm\")/100\r\nbump = Math.random() < .8 \r\n\r\nreturn bump * nozzle * rpm"
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": true,
+      "FrontLeftFrequencyFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "nozzle = $prop(\"FalconBMS.ownship.nozzlePos\")\r\nreturn nozzle * 80 + 100"
+      },
+      "FrontRightFrequencyFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "nozzle = $prop(\"FalconBMS.ownship.nozzlePos\")\r\nreturn nozzle * 80 + 100"
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "c552f966-0245-47a6-86ef-56fc852ae13c",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "Afterburner",
+      "AggregationMode": "Left/Right",
+      "Gain": 37.555555555555657,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 184,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 10,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    },
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 1.0,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\nspeed =  $prop(\"FalconBMS.ownship.mach\")/2\r\nbrake = 100*$prop(\"FalconBMS.ownship.speedbrake\")\r\nbump = Math.random() > .5 \r\n\r\nreturn bump * brake * speed"
+      },
+      "FrontRightFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\nspeed =  $prop(\"FalconBMS.ownship.mach\")/2\r\nbrake = 100*$prop(\"FalconBMS.ownship.speedbrake\")\r\nbump = Math.random() > .5 \r\n\r\nreturn bump * brake * speed"
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": true,
+      "FrontLeftFrequencyFormula": {
+        "Expression": "[FalconBMS.ownship.mach]/2 * 200 + 15"
+      },
+      "FrontRightFrequencyFormula": {
+        "Expression": "[FalconBMS.ownship.mach]/2 * 200 + 15"
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "3b9070af-69ee-4086-8b90-d3a02071c990",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "Airbrake Turbulence",
+      "AggregationMode": "Left/Right",
+      "Gain": 90.0,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 44,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 10,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    },
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 1.0,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\n\r\nbrake = 100*$prop(\"FalconBMS.ownship.gearPos\")\r\nspeed =  $prop(\"FalconBMS.ownship.mach\")/2\r\nbump = Math.random() > .5 \r\n\r\nreturn bump * brake * speed"
+      },
+      "FrontRightFormula": {
+        "Expression": ""
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": true,
+      "FrontLeftFrequencyFormula": {
+        "Expression": "[FalconBMS.ownship.mach]/2 * 200"
+      },
+      "FrontRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "d5e3ee5a-f3df-47a7-87e5-1c4defdf14e0",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "Landing Gear Down Turbulence",
+      "AggregationMode": "Mono",
+      "Gain": 45.111111111111086,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 50,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 10,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    },
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 1.0,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\n\r\ngear = 100*$prop(\"FalconBMS.landingGear.NoseGearPos\")\r\nbump = Math.random()<.9\r\n\r\nif (gear > 0 && gear < 100) {\r\n\tisMoving = true\r\n\tbumps = 0\r\n\treturn (50-Math.abs(gear-50)) * bump\r\n} else {\r\n\tif (isMoving && bumps < 12){\r\n\t\tbumps++\r\n\t\t\r\n\t\tif (bumps > 6 && bumps < 10){\r\n\t\t\treturn 20;\r\n\t\t}\r\n\t\t\r\n\t\treturn 100;\r\n\t} else {\r\n\t\tisMoving = false;\r\n\t\treturn 0\r\n\t}\r\n}\r\n",
+        "PreExpression": "isMoving = false\r\nbumps = 0"
+      },
+      "FrontRightFormula": {
+        "Expression": ""
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": true,
+      "FrontLeftFrequencyFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "gear = $prop(\"FalconBMS.ownship.gearPos\")\r\nfreq = 50 + (1- gear) * 20\r\n\r\nif (gear > 0 && gear < 1){\r\n\treturn freq\r\n} else {\r\n\treturn 33\r\n}"
+      },
+      "FrontRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "8e0fba79-233c-4e8c-bf9a-f394a16ba7ca",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "Landing Gear Moving - Center",
+      "AggregationMode": "Mono",
+      "Gain": 76.222222222221944,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 44,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 10,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    },
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 1.0,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\ngear = 100*$prop(\"FalconBMS.landingGear.LeftGearPos\")\r\nbump = Math.random()<.9\r\n\r\nif (gear > 0 && gear < 100) {\r\n\tisMoving = true\r\n\tbumps = 0\r\n\treturn (50-Math.abs(gear-50)) * bump\r\n} else {\r\n\tif (isMoving && bumps < 12){\r\n\t\tbumps++\r\n\t\t\t\t\r\n\t\treturn 100;\r\n\t} else {\r\n\t\tisMoving = false;\r\n\t\treturn 0\r\n\t}\r\n}\r\n",
+        "PreExpression": "isMoving = false\r\nbumps = 0"
+      },
+      "FrontRightFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\n\r\ngear = 100*$prop(\"FalconBMS.landingGear.RightGearPos\")\r\nbump = Math.random()<.9\r\n\r\nif (gear > 0 && gear < 100) {\r\n\tisMoving = true\r\n\tbumps = 0\r\n\treturn (50-Math.abs(gear-50)) * bump\r\n} else {\r\n\tif (isMoving && bumps < 12){\r\n\t\tbumps++\r\n\t\t\t\t\r\n\t\treturn 100;\r\n\t} else {\r\n\t\tisMoving = false;\r\n\t\treturn 0\r\n\t}\r\n}\r\n",
+        "PreExpression": "isMoving = false\r\nbumps = 0"
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": true,
+      "FrontLeftFrequencyFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "gear = $prop(\"FalconBMS.ownship.gearPos\")\r\nfreq = 50 + (1- gear) * 20\r\n\r\nif (gear > 0 && gear < 1){\r\n\treturn freq\r\n} else {\r\n\treturn 40\r\n}"
+      },
+      "FrontRightFrequencyFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "gear = $prop(\"FalconBMS.ownship.gearPos\")\r\nfreq = 50 + (1- gear) * 20\r\n\r\nif (gear > 0 && gear < 1){\r\n\treturn freq\r\n} else {\r\n\treturn 42\r\n}"
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "13bd7953-a180-4df1-8660-bb0b5573976f",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "Landing Gear Moving - Left + Right",
+      "AggregationMode": "Left/Right",
+      "Gain": 76.222222222221944,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 44,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 10,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    },
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 1.0,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\ngun = $prop(\"FalconBMS.IntelliVibe.IsFiringGun\")\r\n\r\nbump = (Math.random()<.9) * .2 + .8\r\n\r\nreturn gun * bump * 100"
+      },
+      "FrontRightFormula": {
+        "Expression": ""
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": false,
+      "FrontLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "FrontRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "4e055520-ff8e-49f0-9302-1cbda4c6578c",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "Cannon Fire",
+      "AggregationMode": "Left/Right",
+      "Gain": 90.0,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 100,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 10,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    },
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 1.0,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\n\r\ngun = $prop(\"FalconBMS.IntelliVibe.IsFiringGun\")\r\n\r\nbump = (Math.random()<.9) * .2 + .8\r\n\r\nreturn gun * bump * 100"
+      },
+      "FrontRightFormula": {
+        "Expression": ""
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": false,
+      "FrontLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "FrontRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "89e7cd31-23e7-4b66-ba08-d5c2bfde6848",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "Cannon Fire Low",
+      "AggregationMode": "Mono",
+      "Gain": 44.444444444444343,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 50,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 10,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    },
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 1.0,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\nvar newAA = $prop(\"FalconBMS.IntelliVibe.AAMissileFired\")\r\n\r\nif (newAA != oldAA){\r\n\tif (len < 5){\r\n\t\tlen++;\r\n\t\treturn 100;\r\n\t} else {\r\n\t\tlen = 0\r\n\t\toldAA = newAA;\r\n\t}\r\n}\r\nreturn 0;",
+        "PreExpression": "var oldAA = $prop(\"DataPluginDemo.FalconBMS.IntelliVibe.AAMissileFired\")\r\nvar len = 0;"
+      },
+      "FrontRightFormula": {
+        "Expression": ""
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": false,
+      "FrontLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "FrontRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "68fb6549-e01c-49de-aa86-9654b4b51b85",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "AA",
+      "AggregationMode": "Mono",
+      "Gain": 90.0,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 50,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 10,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    },
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 1.0,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\nvar newAA = $prop(\"FalconBMS.IntelliVibe.AGMissileFired\") + $prop(\"FalconBMS.IntelliVibe.BombDropped\")\r\n\r\nif (newAA != oldAA){\r\n\tif (len < 5){\r\n\t\tlen++;\r\n\t\treturn 100;\r\n\t} else {\r\n\t\tlen = 0\r\n\t\toldAA = newAA;\r\n\t}\r\n}\r\nreturn 0;",
+        "PreExpression": "var oldAA = $prop(\"FalconBMS.IntelliVibe.AGMissileFired\") + $prop(\"FalconBMS.IntelliVibe.BombDropped\")\r\nvar len = 0;"
+      },
+      "FrontRightFormula": {
+        "Expression": ""
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": false,
+      "FrontLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "FrontRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "9e811c22-b8bc-4f59-9a95-9b871225c657",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "A/G",
+      "AggregationMode": "Mono",
+      "Gain": 90.0,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 50,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 10,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    },
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 1.0,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\nvar newAA = $prop(\"FalconBMS.IntelliVibe.ChaffDropped\") + $prop(\"FalconBMS.IntelliVibe.FlareDropped\")\r\n\r\nif (newAA != oldAA){\r\n\tif (len < 5){\r\n\t\tlen++;\r\n\t\treturn 100;\r\n\t} else {\r\n\t\tlen = 0\r\n\t\toldAA = newAA;\r\n\t}\r\n}\r\nreturn 0;",
+        "PreExpression": "var oldAA = $prop(\"FalconBMS.IntelliVibe.ChaffDropped\") + $prop(\"FalconBMS.IntelliVibe.FlareDropped\")\r\nvar len = 0;"
+      },
+      "FrontRightFormula": {
+        "Expression": ""
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": false,
+      "FrontLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "FrontRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "58aacf0e-7b10-442c-8e54-517906e0a0e5",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "Chaff Flare",
+      "AggregationMode": "Mono",
+      "Gain": 90.0,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 74,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 10,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    },
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 1.0,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\nbumpIntensity = $prop(\"FalconBMS.ownship.bumpIntensity\") * 100\r\nbump = Math.random() < .5\r\n\r\nreturn bump*bumpIntensity"
+      },
+      "FrontRightFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\nbumpIntensity = $prop(\"FalconBMS.ownship.bumpIntensity\") * 100\r\nbump = Math.random() < .5\r\n\r\nreturn bump*bumpIntensity\r\n"
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": true,
+      "FrontLeftFrequencyFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "return 35 + Math.random()*10"
+      },
+      "FrontRightFrequencyFormula": {
+        "Expression": "return 45 + Math.random()*10"
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "0ed07605-1bd6-47c7-8aca-c11464b55d12",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "Taxi Bumps",
+      "AggregationMode": "Left/Right",
+      "Gain": 90.0,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 44,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 10,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    },
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 1.0,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\n\r\nground = $prop(\"FalconBMS.IntelliVibe.IsOnGround\")\r\n\r\nif (!prev_ground && ground){\r\n\tif (bumps < 5){\r\n\t\tbumps += 1\t\t\r\n\t\treturn 100;\r\n\t} else {\r\n\t\tbumps = 0\r\n\t\tprev_ground = ground\r\n\t\treturn 0;\t\t\r\n\t}\r\n}\r\n\r\nbumps = 0\r\nprev_ground = ground\r\nreturn 0;",
+        "PreExpression": "prev_ground = $prop(\"FalconBMS.IntelliVibe.IsOnGround\")\r\nbumps = 0\t"
+      },
+      "FrontRightFormula": {
+        "Expression": ""
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": false,
+      "FrontLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "FrontRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "e40d7591-fccb-4d59-9e4f-1458e826ae11",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "Touch Down",
+      "AggregationMode": "Mono",
+      "Gain": 90.0,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 44,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 10,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    },
+    {
+      "AutocalibrationMax": 95.0,
+      "Filter": {
+        "GammaValue": 1.0,
+        "InputGain": 100.0,
+        "MinimumForce": 0,
+        "Threshold": 0,
+        "FilterType": "GammaFilter"
+      },
+      "FrontLeftFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\nvar eject = $prop(\"FalconBMS.IntelliVibe.IsEjecting\")\r\nvar bump = Math.random()>.5\r\n\r\nreturn eject*100\r\n\r\nif (eject != oldEject){\r\n\tif (len < 15){\r\n\t\tlen++;\r\n\t\treturn 100*bump;\r\n\t} else {\r\n\t\tlen = 0\r\n\t\toldEject = eject;\r\n\t}\r\n}\r\nreturn 0;",
+        "PreExpression": "var len = 0;\r\n\r\nvar oldEject = false;"
+      },
+      "FrontRightFormula": {
+        "Expression": ""
+      },
+      "RearLeftFormula": {
+        "Expression": ""
+      },
+      "RearRightFormula": {
+        "Expression": ""
+      },
+      "ForceFrequencies": false,
+      "FrontLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "FrontRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearLeftFrequencyFormula": {
+        "Expression": ""
+      },
+      "RearRightFrequencyFormula": {
+        "Expression": ""
+      },
+      "ContainerId": "ff2217d9-11b4-4709-84f8-78676ba6a19c",
+      "ContainerType": "CustomEffectContainer",
+      "Description": "Eject - don't think this works",
+      "AggregationMode": "Mono",
+      "Gain": 90.0,
+      "IsEnabled": true,
+      "Output": {
+        "UsePrehemptiveMode": false,
+        "Frequency": 36,
+        "UseHighFrequency": false,
+        "HighFrequency": 50,
+        "WhiteNoise": 10,
+        "UseWhiteNoise": false,
+        "EnableDurationModulation": true,
+        "DurationModulationValue": 34,
+        "FrequencyBasedOnPreFilter": false,
+        "Harmonics": 0,
+        "HoldMode": 1,
+        "DelayEnabled": false,
+        "IsAudio": true,
+        "AssignToChannelGroup": false,
+        "ChannelGroupName": "",
+        "PropertyName": null,
+        "ExportProperty": false,
+        "DisableOutput": false,
+        "OutputType": "ToneOutput"
+      }
+    }
+  ],
+  "AutoCalibrationRatio2": 100,
+  "OutputMode": 1,
+  "GlobalGain": 50.0,
+  "UseProfileGain": false,
+  "LastLoaded": "0001-01-01T00:00:00",
+  "Name": "BMS",
+  "ProfileId": "ffb1e2de-043b-433e-a3b1-b2861259d764",
+  "GameCode": "Custom_7b9bf82e-346b-4395-a37c-c69600286b9b",
+  "CarChoice": null
+}
