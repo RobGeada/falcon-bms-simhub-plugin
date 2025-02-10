@@ -18,7 +18,7 @@ Alternatively, I've included the source code for the plugin, so if you're famili
 # Provided Properties
 You can see the telemetry fields that the plugin exposes in the main [FalconBMS.cs file](https://github.com/RobGeada/falcon-bms-simhub-plugin/blob/68ecbddbb9fcb147693aed62593b85c1f4495f5c/FalconBMS.cs#L51). For better documentation, you can look at the original [F4SharedMemory FlightData class](https://github.com/lightningviper/lightningstools/blob/9bc1be08717982922fbb0705f500d93a2b36da0d/src/F4SharedMem/FlightData.cs#L230), which is the source of all of these fields. 
 
-# My Bass Shaker Config
+# My SimHub Bass Shaker Config
 [Falcon BMS - rgeada.siprofile](https://raw.githubusercontent.com/RobGeada/falcon-bms-simhub-plugin/refs/heads/main/Falcon%20BMS%20-%20rgeada.siprofile)
 
 # Some sample bass shaker configs:
