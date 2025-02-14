@@ -12,6 +12,15 @@ This project relies on lightingtools' [F4SharedMem tool](https://github.com/ligh
 
 You can check that the plugin has installed succesfully by looking in the "Available Properties" tab of SimHub and searching for `FalconBMS`: you should see a bunch of available properties.
 
+# Configuring BMS as a Custom Game in SimHub
+From @gumby in the Falcon BMS forums:
+1) From Simhub, go to Settings.
+2) Select the “Custom games” tab
+3) Create a new game called BMS and in Process Detection put Falcon BMS
+4) You may also need to run SimHub as administrator - there’s an option for that in the General tab of the settings page
+5) Run BMS, and at the top of the SimHub interface click Change active game > change it to BMS, then click activate.
+
+
 # Build From Source
 Alternatively, I've included the source code for the plugin, so if you're familiar with the SimHub plugin SDK, you can build and modify the plugin yourself!
 
