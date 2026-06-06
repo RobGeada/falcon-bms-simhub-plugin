@@ -37,6 +37,9 @@ way to investigate the available properties is to check out the [F4SharedMem fli
 # My SimHub Bass Shaker Config
 [Falcon BMS - rgeada.siprofile](https://raw.githubusercontent.com/RobGeada/falcon-bms-simhub-plugin/refs/heads/main/Falcon%20BMS%20-%20rgeada.siprofile)
 
+This is how I've got my bass shakers set up for Falcon BMS. I've got a Dayton BST-1 under my seat and a Dayton TT25 under each of my shoulders, so some of my effects are in stereo. You'll probably need to tune frequencies and intensities of these effects to your specific rig.
+
+
 # Some sample bass shaker configs:
 SimHub's built-in bass shaker effects are pretty car-focused, so we'll have to write our own custom effects. Here are a few custom effects that I use as examples:
 
