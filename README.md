@@ -4,7 +4,7 @@ This plugin connects [Falcon 4 BMS](https://www.falcon-bms.com/)'s telemetry out
 
 This project relies on lightingtools' [F4SharedMem tool](https://github.com/lightningviper/lightningstools/tree/master/src/F4SharedMem) to read the telemetry out of the BMS shared memory.
 
-# v0.2 Release Notes
+# v0.2 Release Notes (June 6th, 2026)
 * Standardizes variables names according to their underlying F4SharedMem names
 * Automatic extraction of all telemetry variables, as opposed to old hardcoded system
 * Automatic expansion of all telemetry bit objects (lightBits, bettyBits, etc) into individual boolean flags
