@@ -849,7 +849,7 @@
       "FrontLeftFormula": {
         "JSExt": 0,
         "Interpreter": 1,
-        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\nvar newAA = $prop(\"FalconBMS.IntelliVibe.ChaffDropped\") + $prop(\"FalconBMS.IntelliVibe.FlareDropped\")\r\n\r\nif (newAA != oldAA){\r\n\tif (len < 5){\r\n\t\tlen++;\r\n\t\treturn 100;\r\n\t} else {\r\n\t\tlen = 0\r\n\t\toldAA = newAA;\r\n\t}\r\n}\r\nreturn 0;",
+        "Expression": "if ($prop(\"FalconBMS.Utility.stopEffects\")){\r\n\treturn 0\r\n}\r\n\r\n\r\nvar newAA = $prop(\"FalconBMS.IntelliVibe.ChaffDropped\") + $prop(\"FalconBMS.IntelliVibe.FlareDropped\")\r\n\r\nif (newAA != oldAA){\r\n\tif (len < 3){ \r\n\t\tlen++;\r\n\t\treturn 100;\r\n\t} else {\r\n\t\tlen = 0\r\n\t\toldAA = newAA;\r\n\t}\r\n}\r\nreturn 0;",
         "PreExpression": "var oldAA = $prop(\"FalconBMS.IntelliVibe.ChaffDropped\") + $prop(\"FalconBMS.IntelliVibe.FlareDropped\")\r\nvar len = 0;"
       },
       "FrontRightFormula": {
@@ -923,6 +923,8 @@
         "Expression": "return 35 + Math.random()*10"
       },
       "FrontRightFrequencyFormula": {
+        "JSExt": 0,
+        "Interpreter": 1,
         "Expression": "return 45 + Math.random()*10"
       },
       "RearLeftFrequencyFormula": {
