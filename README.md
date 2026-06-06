@@ -1,6 +1,6 @@
 # FalconBMS SimHub Plugin
 
-This plugin connects [Falcon 4 BMS](https://www.falcon-bms.com/)'s telemetry output to [SimHub](https://www.simhubdash.com/), allowing the use of SimHub to control bass shakers, LEDs, wind simulators, etc., based on Falcon 4's telemetry. 
+This plugin connects [Falcon 4 BMS](https://www.falcon-bms.com/)'s telemetry output to [SimHub](https://www.simhubdash.com/), allowing the use of SimHub to control bass shakers, LEDs, wind simulators, etc., based on Falcon BMS' telemetry. 
 
 This project relies on lightingtools' [F4SharedMem tool](https://github.com/lightningviper/lightningstools/tree/master/src/F4SharedMem) to read the telemetry out of the BMS shared memory.
 
