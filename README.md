@@ -32,7 +32,7 @@ Alternatively, I've included the source code for the plugin, so if you're famili
 
 # Provided Properties
 After loading the plugin in Simhub, check "Available properties" and search for "Falcon BMS". Everything from the F4SharedMem telemetry is exposed in the plugin, so one
-way to investigate the available properties is to check out the [F4SharedMem flight data](https://github.com/lightningviper/lightningstools/blob/master/src/F4SharedMem/FlightData.cs) and [its various data types](https://github.com/lightningviper/lightningstools/tree/master/src/F4SharedMem/Headers).
+way to investigate the available properties is to check out the [F4SharedMem flight data](https://github.com/lightningviper/lightningstools/blob/master/src/F4SharedMem/FlightData.cs#L230-L457) and [its various data types](https://github.com/lightningviper/lightningstools/tree/master/src/F4SharedMem/Headers).
 
 # My SimHub Bass Shaker Config
 [Falcon BMS - rgeada.siprofile](https://raw.githubusercontent.com/RobGeada/falcon-bms-simhub-plugin/refs/heads/main/Falcon%20BMS%20-%20rgeada.siprofile)
