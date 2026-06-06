@@ -4,10 +4,11 @@ This plugin connects [Falcon 4 BMS](https://www.falcon-bms.com/)'s telemetry out
 
 This project relies on lightingtools' [F4SharedMem tool](https://github.com/lightningviper/lightningstools/tree/master/src/F4SharedMem) to read the telemetry out of the BMS shared memory.
 
-# Release Notes
-
-If you've installed the previous version of this plugin, the latest update (June 6th, 2026) changes the names of a variety
-
+# v0.2 Release Notes
+* Standardizes variables names according to their underlying F4SharedMem names
+* Automatic extraction of all telemetry variables, as opposed to old hardcoded system
+* Automatic expansion of all telemetry bit objects (lightBits, bettyBits, etc) into individual boolean flags
+   * e.g., Master Caution light status is now published directly to `FalconBMS.lights1.MasterCaution`, you no longer need to do byte conversion and bitwise flag parsing.
 
 # Installation
 1) Download the prebuilt FalconBMS plugin: [RGeada.FalconBMS.dll](https://github.com/RobGeada/falcon-bms-simhub-plugin/raw/refs/heads/main/builds/RGeada.FalconBMS.dll)
@@ -20,9 +21,9 @@ You can check that the plugin has installed succesfully by looking in the "Avail
 # Configuring BMS as a Custom Game in SimHub
 From @gumby in the Falcon BMS forums:
 1) From Simhub, go to Settings.
-2) Select the “Custom games” tab
+2) Select the â€œCustom gamesâ€ tab
 3) Create a new game called BMS and in Process Detection put Falcon BMS
-4) You may also need to run SimHub as administrator - there’s an option for that in the General tab of the settings page
+4) You may also need to run SimHub as administrator - thereâ€™s an option for that in the General tab of the settings page
 5) Run BMS, and at the top of the SimHub interface click Change active game > change it to BMS, then click activate.
 
 
